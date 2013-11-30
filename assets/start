@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /var/www/ghost
+export NODE_ENV=production
+forever start index.js
+
+mkdir -p /var/log/nginx/ghost
+service nginx start
+

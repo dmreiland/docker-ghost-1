@@ -1,0 +1,25 @@
+#!/bin/bash
+
+apt-get install -y lsb-release
+echo deb http://archive.ubuntu.com/ubuntu $(lsb_release -cs) main universe > /etc/apt/sources.list.d/universe.list
+apt-get update
+apt-get -y --force-yes install sqlite3
+apt-get -y --force-yes install unzip
+apt-get -y --force-yes install git
+apt-get -y --force-yes install nginx
+npm install -g forever
+
+mkdir -p /var/www
+cd /var/www
+wget --no-check-certificate https://ghost.org/zip/ghost-0.3.3.zip
+unzip -uo ghost-0.3.3.zip -d ghost
+cd ./ghost
+npm install --production
+cp -v /opt/hopsoft/ghost/conf/config.js /var/www/ghost/config.js
+chown -R www-data:www-data /var/www
+
+rm /etc/nginx/sites-enabled/default
+cp /opt/hopsoft/ghost/conf/nginx.conf /etc/nginx/nginx.conf
+cp /opt/hopsoft/ghost/conf/ghost.conf /etc/nginx/sites-available/ghost.conf
+ln -s /etc/nginx/sites-available/ghost.conf /etc/nginx/sites-enabled/ghost.conf
+

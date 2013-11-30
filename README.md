@@ -1,3 +1,5 @@
+## Examples
+
 First run:
 
 ```
@@ -6,7 +8,6 @@ docker run -name my-ghost-blog -i -t -p 3000:80 -v /var/www -v /var/log/ghost:/v
 # customize i.e. setup mail config, install themes etc..
 /opt/hopsoft/ghost/start
 <CTL-P> <CTL-C>
-docker stop my-blog
 ```
 
 Subsequent runs:

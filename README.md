@@ -2,9 +2,7 @@
 
 ```
 mkdir /var/log/ghost
-docker run -name my-blog -i -t -p 3000:80 -v /var/www -v /var/log/ghost:/var/log ghost bash
-/opt/hopsoft/ghost/start
-<CTL-P> <CTL-Q>
+docker run -name my-blog -i -t -p 3000:80 -v /var/www -v /var/log/ghost:/var/log hopsoft/ghost bash
 ```
 
 ## Configure
@@ -33,6 +31,12 @@ vim /var/www/ghost/content/themes/ghostium/partials/custom/navigation.hbs
 <CTL-P> <CTL-Q>
 ```
 
+## Visit the blog
+
+```
+curl http://localhost:3000
+```
+
 ## Make a config change after start
 
 ```
@@ -42,7 +46,7 @@ forever restartall
 <CTL-P> <CTL-Q>
 ```
 
-Subsequent runs:
+## Restart the container
 
 ```
 docker start my-blog

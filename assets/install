@@ -7,6 +7,7 @@ apt-get -y --force-yes install sqlite3
 apt-get -y --force-yes install unzip
 apt-get -y --force-yes install git
 apt-get -y --force-yes install nginx
+apt-get -y --force-yes install vim
 npm install -g forever
 
 mkdir -p /var/www

@@ -7,7 +7,7 @@ docker run -name my-blog -i -t -p 3000:80 -v /var/www -v /var/log/ghost:/var/log
 <CTL-P> <CTL-Q>
 ```
 
-## Customize *(optional)*
+## Configure
 
 ```
 vim /var/www/ghost/config.js
